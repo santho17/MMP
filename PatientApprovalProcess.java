@@ -73,9 +73,15 @@ loginToPatientModule()-Thursday
 		System.out.println("5 digit random number from function: " +digit_5);
 		WebElement zipCodeWE = driver.findElement(By.id("zipcode"));
 	    zipCodeWE.sendKeys(String.valueOf(digit_5));
-		
-		
-		
+
+		int lAge = 18;
+		int uAge = 99;
+
+		int age_2 = rand.nextInt(lAge+(uAge-lAge+1));
+		age_2 = generateRandomAge(18,99);
+		System.out.println("2 digit random number from function: " +age_2);
+		WebElement ageWE = driver.findElement(By.id("age"));
+		ageWE.sendKeys(String.valueOf(age_2));
 		
 		}
 	
@@ -124,11 +130,10 @@ loginToPatientModule()-Thursday
 	    Random rand = new Random();
 		int digits = rand.nextInt(LL+(UL-LL+1));
 		return digits;
-	
-	
-	
-	
-	
-	
 }
+	public static int generateRandomAge(int lAge, int uAge){
+
+		Random rand = new Random();
+		int age = lAge+rand.nextInt((uAge-lAge+1));
+		return age;		
 }
